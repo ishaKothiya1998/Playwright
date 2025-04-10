@@ -72,15 +72,15 @@ test.describe('SauceDemo Test Suite', () => {
     console.log('First item price after sort:', firstItemAfterSort);
   });
 
-  // test('TC07 - Sort and Logout', async ({ page }) => {
-  //   await page.goto(BASE_URL);
-  //   await page.fill('#user-name', CREDENTIALS.standard.username);
-  //   await page.fill('#password', CREDENTIALS.standard.password);
-  //   await page.click('#login-button');
-  //   await page.selectOption('.product_sort_container', 'za');
-  //   await page.click('#react-burger-menu-btn');
-  //   await page.click('#logout_sidebar_link');
-  //   await expect(page).toHaveURL(BASE_URL);
-  // });
+  test('TC07 - Sort and Logout', async ({ page }) => {
+    await page.goto(BASE_URL);
+    await page.fill('#user-name', CREDENTIALS.standard.username);
+    await page.fill('#password', CREDENTIALS.standard.password);
+    await page.click('#login-button');
+    await page.selectOption('.product_sort_container', 'za');
+    await page.click('#react-burger-menu-btn');
+    await page.click('#logout_sidebar_link');
+    await expect(page).toHaveURL(BASE_URL);
+  });
 
 });
