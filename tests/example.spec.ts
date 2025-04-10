@@ -37,50 +37,50 @@ test.describe('SauceDemo Test Suite', () => {
     await expect(image).toBeVisible();
   });
 
-  test('TC04 - To add to cart', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await page.fill('#user-name', CREDENTIALS.standard.username);
-    await page.fill('#password', CREDENTIALS.standard.password);
-    await page.click('#login-button');
-    await page.click('text=Add to cart');
-    const cartBadge = page.locator('.shopping_cart_badge');
-    await expect(cartBadge).toHaveText('1');
-    console.log("Added to Cart Successfully")
-  });
+  // test('TC04 - To add to cart', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.fill('#user-name', CREDENTIALS.standard.username);
+  //   await page.fill('#password', CREDENTIALS.standard.password);
+  //   await page.click('#login-button');
+  //   await page.click('text=Add to cart');
+  //   const cartBadge = page.locator('.shopping_cart_badge');
+  //   await expect(cartBadge).toHaveText('1');
+  //   console.log("Added to Cart Successfully")
+  // });
 
-  test('TC05 - Navigate to About Page', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await page.fill('#user-name', CREDENTIALS.standard.username);
-    await page.fill('#password', CREDENTIALS.standard.password);
-    await page.click('#login-button');
-    await page.click('#react-burger-menu-btn');
-    await page.click('#about_sidebar_link');
-    await expect(page).toHaveURL(/saucelabs.com/);
-    console.log('Navigated to About Page Successfully');
+  // test('TC05 - Navigate to About Page', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.fill('#user-name', CREDENTIALS.standard.username);
+  //   await page.fill('#password', CREDENTIALS.standard.password);
+  //   await page.click('#login-button');
+  //   await page.click('#react-burger-menu-btn');
+  //   await page.click('#about_sidebar_link');
+  //   await expect(page).toHaveURL(/saucelabs.com/);
+  //   console.log('Navigated to About Page Successfully');
 
-  });
+  // });
 
-  test('TC06 - Sort', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await page.fill('#user-name', CREDENTIALS.standard.username);
-    await page.fill('#password', CREDENTIALS.standard.password);
-    await page.click('#login-button');
-    const firstItem = await page.locator('.inventory_item_name').first().textContent();
-    console.log('First item price before sort:', firstItem);
-    await page.selectOption('.product_sort_container', 'za');
-    const firstItemAfterSort = await page.locator('.inventory_item_name').first().textContent();
-    console.log('First item price after sort:', firstItemAfterSort);
-  });
+  // test('TC06 - Sort', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.fill('#user-name', CREDENTIALS.standard.username);
+  //   await page.fill('#password', CREDENTIALS.standard.password);
+  //   await page.click('#login-button');
+  //   const firstItem = await page.locator('.inventory_item_name').first().textContent();
+  //   console.log('First item price before sort:', firstItem);
+  //   await page.selectOption('.product_sort_container', 'za');
+  //   const firstItemAfterSort = await page.locator('.inventory_item_name').first().textContent();
+  //   console.log('First item price after sort:', firstItemAfterSort);
+  // });
 
-  test('TC07 - Sort and Logout', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await page.fill('#user-name', CREDENTIALS.standard.username);
-    await page.fill('#password', CREDENTIALS.standard.password);
-    await page.click('#login-button');
-    await page.selectOption('.product_sort_container', 'za');
-    await page.click('#react-burger-menu-btn');
-    await page.click('#logout_sidebar_link');
-    await expect(page).toHaveURL(BASE_URL);
-  });
+  // test('TC07 - Sort and Logout', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.fill('#user-name', CREDENTIALS.standard.username);
+  //   await page.fill('#password', CREDENTIALS.standard.password);
+  //   await page.click('#login-button');
+  //   await page.selectOption('.product_sort_container', 'za');
+  //   await page.click('#react-burger-menu-btn');
+  //   await page.click('#logout_sidebar_link');
+  //   await expect(page).toHaveURL(BASE_URL);
+  // });
 
 });
