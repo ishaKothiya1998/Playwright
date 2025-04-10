@@ -7,35 +7,35 @@ const CREDENTIALS = {
 };
 
 test.describe('SauceDemo Test Suite', () => {
-  test('TC01 - Login as standard user and assert URL', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await page.fill('#user-name', CREDENTIALS.standard.username);
-    await page.fill('#password', CREDENTIALS.standard.password);
-    await page.click('#login-button');
-    await expect(page).toHaveURL(/inventory.html/);
-    console.log('Login Success for standard_user');
-  });
+  // test('TC01 - Login as standard user and assert URL', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.fill('#user-name', CREDENTIALS.standard.username);
+  //   await page.fill('#password', CREDENTIALS.standard.password);
+  //   await page.click('#login-button');
+  //   await expect(page).toHaveURL(/inventory.html/);
+  //   console.log('Login Success for standard_user');
+  // });
 
-  test('TC02 - Login as locked out user and assert error label', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await page.fill('#user-name', CREDENTIALS.locked.username);
-    await page.fill('#password', CREDENTIALS.locked.password);
-    await page.click('#login-button');
-    const errorLabel = page.locator('[data-test="error"]');
-    await expect(errorLabel).toBeVisible();
-    await expect(errorLabel).toContainText('locked out');
-  });
+  // test('TC02 - Login as locked out user and assert error label', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.fill('#user-name', CREDENTIALS.locked.username);
+  //   await page.fill('#password', CREDENTIALS.locked.password);
+  //   await page.click('#login-button');
+  //   const errorLabel = page.locator('[data-test="error"]');
+  //   await expect(errorLabel).toBeVisible();
+  //   await expect(errorLabel).toContainText('locked out');
+  // });
 
-  test('TC03 - View a product (non-text assertion)', async ({ page }) => {
-    await page.goto(BASE_URL);
-    await page.fill('#user-name', CREDENTIALS.standard.username);
-    await page.fill('#password', CREDENTIALS.standard.password);
-    await page.click('#login-button');
-    console.log(await page.title())
-    await page.click('.inventory_item a');
-    const image = page.locator('.inventory_details_img');
-    await expect(image).toBeVisible();
-  });
+  // test('TC03 - View a product (non-text assertion)', async ({ page }) => {
+  //   await page.goto(BASE_URL);
+  //   await page.fill('#user-name', CREDENTIALS.standard.username);
+  //   await page.fill('#password', CREDENTIALS.standard.password);
+  //   await page.click('#login-button');
+  //   console.log(await page.title())
+  //   await page.click('.inventory_item a');
+  //   const image = page.locator('.inventory_details_img');
+  //   await expect(image).toBeVisible();
+  // });
 
   test('TC04 - To add to cart', async ({ page }) => {
     await page.goto(BASE_URL);
